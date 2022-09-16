@@ -13,6 +13,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    continue-on-error: true
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -23,8 +24,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           pip install bandit bandit-sarif-formatter
-          pwd
-          echo $GITHUB_WORKSPACE
           bandit  -r .  -f sarif -o results.sarif
           cat results.sarif
       - name: Upload SARIF file
