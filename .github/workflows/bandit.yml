@@ -25,6 +25,10 @@ jobs:
         run: |
           pip install bandit bandit-sarif-formatter
           bandit  -r .  -f sarif -o /home/runner/work/actions-playground/actions-playground/results.sarif
+      - uses: actions/upload-artifact@v3
+        with:
+          name: results
+          path: /home/runner/work/actions-playground/actions-playground/results.sarif          
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
