@@ -24,7 +24,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           pip install bandit bandit-sarif-formatter
-          bandit  -r .  -f sarif -o /home/runner/work/actions-playground/actions-playground/results.sarif
+          bandit  -r /home/runner/work/actions-playground/actions-playground  -f sarif -o /home/runner/work/actions-playground/actions-playground/results.sarif
+          ls -l
       - uses: actions/upload-artifact@v3
         with:
           name: results
