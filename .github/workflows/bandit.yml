@@ -24,9 +24,10 @@ jobs:
       - name: Run a multi-line script
         run: |
           pip install bandit bandit-sarif-formatter
-          bandit  -r .  -f sarif -o $GITHUB_WORKSPACE/results.sarif
+          bandit  -r .  -f sarif -o /home/runner/work/actions-playground/actions-playground/results.sarif
           cat results.sarif
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: $GITHUB_WORKSPACE/results.sarif          
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: /home/runner/work/actions-playground/actions-playground/results.sarif
