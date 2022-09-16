@@ -25,7 +25,6 @@ jobs:
         run: |
           pip install bandit bandit-sarif-formatter
           bandit  -r .  -f sarif -o /home/runner/work/actions-playground/actions-playground/results.sarif
-          cat results.sarif
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
