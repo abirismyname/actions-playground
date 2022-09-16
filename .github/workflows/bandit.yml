@@ -26,7 +26,7 @@ jobs:
           pwd
           echo $GITHUB_WORKSPACE
           bandit  -r .  -f sarif -o results.sarif
-          
+          cat results.sarif
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
