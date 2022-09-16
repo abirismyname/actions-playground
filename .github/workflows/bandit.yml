@@ -23,7 +23,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           pip install bandit bandit-sarif-formatter
-          bandit test.py -f sarif -o results.sarif
+          pwd
+          echo $GITHUB_WORKSPACE
+          bandit  -r .  -f sarif -o results.sarif
           
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
