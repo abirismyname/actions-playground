@@ -20,12 +20,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          pip install bandit bandit-sarif-formatter
-          bandit --exit-zero -r .  -f sarif -o results.sarif
-      - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: results.sarif
+      - uses: shundor/bandit-action@main
+        with: 
+          path: "."
+          level: high
+          confidence: high
+          exit_zero: true   
