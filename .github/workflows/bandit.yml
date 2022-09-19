@@ -20,7 +20,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - uses: shundor/bandit-action@main
+      - uses: shundor/python-bandit-sarif@main
         with: 
           path: "."
           level: high
