@@ -23,6 +23,4 @@ jobs:
       - uses: shundor/python-bandit-sarif@main
         with: 
           path: "."
-          level: high
-          confidence: high
           exit_zero: true   
