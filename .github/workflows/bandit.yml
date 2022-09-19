@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Bandit
 
 # Controls when the workflow will run
 on:
@@ -24,14 +24,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           pip install bandit bandit-sarif-formatter
-          bandit --exit-zero -r /home/runner/work/actions-playground/actions-playground  -f sarif -o /home/runner/work/actions-playground/actions-playground/results.sarif
-          ls -l
-      - uses: actions/upload-artifact@v3
-        with:
-          name: results
-          path: /home/runner/work/actions-playground/actions-playground/results.sarif          
+          bandit --exit-zero -r .  -f sarif -o results.sarif
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
-          # Path to SARIF file relative to the root of the repository
-          sarif_file: /home/runner/work/actions-playground/actions-playground/results.sarif
+          sarif_file: results.sarif
