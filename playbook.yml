@@ -5,7 +5,7 @@
 
   tasks:
     - name: "create folder"
-        ansible.builtin.file:
-          path: "./CREATED"
-          state: directory
-          mode: "0750"
+      ansible.builtin.file:
+        path: "./CREATED"
+        state: directory
+        mode: "0750"
