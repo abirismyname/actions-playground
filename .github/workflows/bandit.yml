@@ -19,7 +19,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - uses: shundor/python-bandit-sarif@main
+      - name: Bandit Scan
+        uses: shundor/python-bandit-scan@v1.0
         with: 
           path: "."
           exit_zero: true   
