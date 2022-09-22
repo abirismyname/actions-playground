@@ -1,0 +1,11 @@
+---
+- name: Sample playbook
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: "create folder"
+        ansible.builtin.file:
+          path: "./CREATED"
+          state: directory
+          mode: "0750"
