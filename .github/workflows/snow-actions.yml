@@ -29,3 +29,6 @@ jobs:
           sn_client_secret: "sn_client_secret"
           module: "module"
           parameters: "parameters"
+      - name: Run a multi-line script
+        run: |
+          ls -la
