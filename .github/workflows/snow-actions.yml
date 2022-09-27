@@ -22,13 +22,14 @@ jobs:
       - name: Let it SNOW
         uses: shundor/servicenow-actions@main
         with: 
-          sn_host: "sn_host"
-          sn_username: "sn_username"
-          sn_password: "sn_password"
-          sn_client_id: "sn_client_id"
-          sn_client_secret: "sn_client_secret"
-          module: "module"
-          parameters: "parameters"
+          sn_host:  "${{ secrets.SN_HOST }}"
+          sn_username: " ${{ secrets.SN_USERNAME }}"
+          sn_password: " ${{ secrets.SN_PASSWORD }}"
+          sn_client_id: " ${{ secrets.SN_CLIENT_ID }}"
+          sn_client_secret: " ${{ secrets.SN_CLIENT_SECRET }}"
+          module: " ${{ secrets.MODULE }}"
+          parameters: " ${{ secrets.PARAMETERS }}"
+          
       - name: Run a multi-line script
         run: |
           ls -la
