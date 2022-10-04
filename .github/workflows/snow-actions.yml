@@ -36,7 +36,8 @@ jobs:
           filepath: output.txt
           mode: 0777
           content: ${{ steps.snow.outputs.output }}
-      - name: Print output
-        run: |
-          cat output.txt
-        shell: bash
+      - name: Upload artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: playbook-output.txt
+          path: output.txt
