@@ -21,6 +21,7 @@ jobs:
 
       - name: Let it SNOW
         uses: shundor/servicenow-actions@main
+        id: snow
         with: 
           sn_host:  "${{ secrets.SN_HOST }}"
           sn_username: "${{ secrets.SN_USERNAME }}"
@@ -30,6 +31,7 @@ jobs:
           module: "${{ secrets.SN_MODULE }}"
           parameters: "${{ secrets.SN_MODULE_PARAMS }}"
           
-      - name: Run a multi-line script
+      - name: Print output
         run: |
-          ls -la
+          echo snow: ${{ steps.snow.outputs.output }}
+        shell: bash
