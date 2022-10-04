@@ -30,10 +30,12 @@ jobs:
           sn_client_secret: "${{ secrets.SN_CLIENT_SECRET }}"
           sn_module: "${{ secrets.SN_MODULE }}"
           sn_module_params: "${{ secrets.SN_MODULE_PARAMS }}"
-          
+      - name: Write to file
+        uses: frdrwrt/write-to-file@v1.3
+        with:
+          filepath: output.txt
+          content: ${{ steps.snow.outputs.output }}
       - name: Print output
         run: |
-          echo ${{ steps.snow.outputs.output }} | tee output.txt >/dev/null
           cat output.txt
-          exit 0
         shell: bash
