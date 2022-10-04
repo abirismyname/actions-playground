@@ -34,6 +34,7 @@ jobs:
         uses: frdrwrt/write-to-file@v1.3
         with:
           filepath: output.txt
+          mode: 0777
           content: ${{ steps.snow.outputs.output }}
       - name: Print output
         run: |
