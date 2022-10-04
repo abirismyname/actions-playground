@@ -28,8 +28,8 @@ jobs:
           sn_password: "${{ secrets.SN_PASSWORD }}"
           sn_client_id: "${{ secrets.SN_CLIENT_ID }}"
           sn_client_secret: "${{ secrets.SN_CLIENT_SECRET }}"
-          module: "${{ secrets.SN_MODULE }}"
-          parameters: "${{ secrets.SN_MODULE_PARAMS }}"
+          sn_module: "${{ secrets.SN_MODULE }}"
+          sn_module_params: "${{ secrets.SN_MODULE_PARAMS }}"
           
       - name: Print output
         run: |
