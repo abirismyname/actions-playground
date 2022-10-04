@@ -33,7 +33,7 @@ jobs:
           
       - name: Print output
         run: |
-          cat ${{ steps.snow.outputs.output }} >output.txt
+          echo ${{ steps.snow.outputs.output }} | tee output.txt >/dev/null
           cat output.txt
           exit 0
         shell: bash
