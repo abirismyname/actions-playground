@@ -30,6 +30,7 @@ jobs:
           sn_client_secret: "${{ secrets.SN_CLIENT_SECRET }}"
           sn_module: "${{ secrets.SN_MODULE }}"
           sn_module_params: "${{ secrets.SN_MODULE_PARAMS }}"
+          debug: "true"
       - name: Write to file
         uses: frdrwrt/write-to-file@v1.3
         with:
