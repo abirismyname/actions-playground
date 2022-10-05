@@ -41,3 +41,7 @@ jobs:
         with:
           name: playbook-output
           path: output.json
+      - name: Display
+        shell: bash
+        run: |
+            jq '.plays[].tasks[].hosts.localhost.records[]' output.json
