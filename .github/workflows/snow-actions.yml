@@ -28,7 +28,7 @@ jobs:
           sn_password: "${{ secrets.SN_PASSWORD }}"
           sn_client_id: "${{ secrets.SN_CLIENT_ID }}"
           sn_client_secret: "${{ secrets.SN_CLIENT_SECRET }}"
-          sn_module: "1234"
+          sn_module: "{{ secrets.SN_MODULE }}"
           sn_module_params: "${{ secrets.SN_MODULE_PARAMS }}"
       - name: Write to file
         uses: frdrwrt/write-to-file@v1.3
