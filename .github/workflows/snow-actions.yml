@@ -34,11 +34,11 @@ jobs:
       - name: Write to file
         uses: frdrwrt/write-to-file@v1.3
         with:
-          filepath: output.txt
+          filepath: output.json
           mode: 0777
           content: ${{ steps.snow.outputs.output }}
       - name: Upload artifact
         uses: actions/upload-artifact@main
         with:
-          name: playbook-output.txt
-          path: output.txt
+          name: playbook-output
+          path: output.json
