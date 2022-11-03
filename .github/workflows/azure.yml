@@ -23,7 +23,7 @@ jobs:
         azcliversion: 2.30.0
         inlineScript: |
           az account show
-          MY_SECRET=az keyvault secret show --name "ExamplePassword" --vault-name "abirismyname-kv" --query "value"
+          MY_SECRET=`az keyvault secret show --name "ExamplePassword" --vault-name "abirismyname-kv" --query "value"`
           echo $MY_SECRET
           echo 'MY_SECRET_OUTPUT=$MY_SECRET``' >> $GITHUB_OUTPUT
     - name: Use the value
