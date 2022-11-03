@@ -7,7 +7,7 @@ name: AzureCLISample
 
 jobs:
 
-  build-and-deploy:
+  testing:
     runs-on: ubuntu-latest
     steps:
 
@@ -21,6 +21,5 @@ jobs:
       with:
         azcliversion: 2.30.0
         inlineScript: |
-          az upgrade --yes
           az account show
-          az storage -h
+          az keyvault secret show --name "ExamplePassword" --vault-name "abirismyname-kv" --query "value"
