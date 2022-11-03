@@ -3,7 +3,7 @@
 on:
   workflow_dispatch:
 
-name: AzureCLISample
+name: AzureKeyVaultSample
 
 jobs:
 
@@ -16,16 +16,24 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Azure CLI script
+    - name: Set Secret
+      id: step_zero
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.30.0
+        inlineScript: |
+          az keyvault secret set --vault-name "abirismyname-kv" --name "ExposedSecret" --value "USE_GITHUB_SECRET"
+          
+    - name: Get Secret
       id: step_one
       uses: azure/CLI@v1
       with:
         azcliversion: 2.30.0
         inlineScript: |
-          az account show
           MY_SECRET=`az keyvault secret show --name "ExamplePassword" --vault-name "abirismyname-kv" --query "value"`
           echo $MY_SECRET
           echo "MY_SECRET_OUTPUT=$MY_SECRET" >> $GITHUB_OUTPUT
-    - name: Use the value
+
+    - name: Show Secret
       id: step_two
-      run: echo "The selected color is ${{ steps.step_one.outputs.MY_SECRET_OUTPUT }}"      
+      run: echo "The secret value is ${{ steps.step_one.outputs.MY_SECRET_OUTPUT }}"      
